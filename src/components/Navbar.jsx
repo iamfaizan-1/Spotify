@@ -16,14 +16,14 @@ const [isOpen, setIsOpen ] = useState(false)
 <div>
 <nav className="px-8  flex justify-between items-center py-4 fixed top-0 left-0 w-full bg-black text-Secondary">
 
-<FaSpotify className="text-[35px] text-white" />
+<FaSpotify className="text-[35px] sm:ms-0 sm:me-0  ms-auto me-auto text-white" />
 
 
 
 {/* search bar  and home*/}
 
-<div className='flex gap-5'>
-    <div className="hover:hoverEffect">
+<div className='hidden  sm:flex gap-5'>
+    <div className="hover:hoverEffect md:flex hidden">
     <IoIosHome className="bg-primary h-13 w-13 rounded-full p-3 " />
 </div>
 
@@ -38,7 +38,7 @@ const [isOpen, setIsOpen ] = useState(false)
 </div>
 
 
-<ul className="hidden md:flex gap-8 font-semibold">
+<ul className="hidden lg:flex gap-8 font-semibold">
     <li className="hover:hoverEffect">Premium</li>
     <li className="hover:hoverEffect">Support</li>
     <li className="hover:hoverEffect">Download</li>
@@ -47,7 +47,7 @@ const [isOpen, setIsOpen ] = useState(false)
 
    
 </ul>
-<div className="flex gap-5">
+<div className="hidden gap-5 lg:flex">
     <SignButton/>
     <Button   />
 </div>
@@ -56,7 +56,7 @@ const [isOpen, setIsOpen ] = useState(false)
 
 
 
-<div className="md:hidden  " onClick={()=> setIsOpen(!isOpen) } >
+<div className="lg:hidden  " onClick={()=> setIsOpen(!isOpen) } >
     <span className={`transtion-tansfrom duration-300 ease-in-out inline-block ${isOpen ? "rotate-180" : "rotate-0"}`} >
 {
     isOpen ? <RxCross2 />  : <RxHamburgerMenu/>
@@ -64,11 +64,21 @@ const [isOpen, setIsOpen ] = useState(false)
     </span>
 </div>
 
-<ul className={`md:hidden absolute top-[56px]  transtion-tansfrom duration-300 ease-in-out left-0 w-full z-40 flex flex-col items-center justify-center  overflow-hidden bg-amber-800 ${isOpen ? "max-h-60  py-3 " : "max-h-0  py-0"} `} >
-     <li>Home</li>
-    <li>Home</li>
-    <li>Home</li>
-    <li>Home</li>
+<ul
+  className={`lg:hidden fixed top-[67px] sm:top-[84px] left-0 h-screen w-64 z-40 
+  flex flex-col items-center justify-top py-8 gap-5
+  bg-black transition-transform duration-300 ease-in-out
+  ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+>
+  <li className="hover:hoverEffect">Premium</li>
+    <li className="hover:hoverEffect">Support</li>
+    <li className="hover:hoverEffect">Download</li>
+
+<div className=" gap-5 flex flex-col lg:hidden">
+    <SignButton/>
+    <Button   />
+</div>
+
 
 </ul>
 
